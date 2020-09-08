@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+    	SmallPizzas = prompt("Hoeveel small pizzas van €6,- wilt u?");
+    	MediumPizzas = prompt("Hoeveel medium pizzas van €8,- wilt u?");
+    	LargePizzas = prompt("Hoeveel large pizzas van €10,- wilt u?");
+    	const PriceSP = 6;
+    	const PriceMP = 8;
+    	const PriceLP = 10;
+    	TotalSP = SmallPizzas * PriceSP;
+    	TotalMP = MediumPizzas * PriceMP;
+    	TotalLP = LargePizzas * PriceLP;
+    	document.write("U heeft " + SmallPizzas + " kleine pizzas in uw bestelling, wat in totaal €" + TotalSP + " kost.<br>")
+    	document.write("U heeft " + MediumPizzas + " medium pizzas in uw bestelling, wat in totaal €" + TotalMP + " kost.<br>")
+        document.write("U heeft " + LargePizzas + " large pizzas in uw bestelling, wat in totaal €" + TotalLP + " kost.")
+    </script>
+  </body>
+</html>
