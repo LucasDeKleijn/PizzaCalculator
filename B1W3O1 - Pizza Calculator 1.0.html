@@ -3,23 +3,35 @@
   <body style="background-color:#191919; color:white; font-size:17px; font-family:Arial;">
     <script>
     	//Lucas de Kleijn, Pizza calculator.
-    	alert("Goedendag. Vul het gewenste aantal pizzas per afmeting in. Als uw bestelling €50,- of meer kost hoeft u geen verzendkosten te betalen (Normaal €13,-.)") //1ste pop-up met informatie.
+    	alert("Goedendag. Vul het gewenste aantal pizzas per afmeting in. Als uw bestelling €50,- of meer kost hoeft u geen verzendkosten te betalen (Normaal €13,-).") //1ste pop-up met informatie.
     	SmallPizzas = prompt("Hoeveel small pizzas van €6,- wilt u?"); //Deze 3 lines vragen de gebruiker hoeveel pizza's per afmeting hij wilt.
     	MediumPizzas = prompt("Hoeveel medium pizzas van €8,- wilt u?");
     	LargePizzas = prompt("Hoeveel large pizzas van €10,- wilt u?");
-    	TotalPizzas = SmallPizzas + MediumPizzas + LargePizzas;
     	const PRICESP = 6; //Deze 3 lines maken voor elke afmeting pizza een constante prijs.
     	const PRICEMP = 8;
     	const PRICELP = 10;
-    	if (SmallPizzas == null) {
+    	if (SmallPizzas == null) { //De 3 lines die gaan over == null zorgen ervoor dat als er niks ingevuld word het aantal SmallPizzas 0 is.
     		SmallPizzas = 0
+        }
+        if (isNaN(SmallPizzas) === true) { //De 3 lines die gaan over isNaN(Pizzas) zorgen ervoor dat als er iets anders dan een nummer ingevuld word, dat het aantal 0 is en dit gemeld word.
+        	SmallPizzas = 0
+        	document.write("U heeft niet een nummer ingevuld bij het aantal small pizzas.<br>")
         }
         if (MediumPizzas == null) {
     		MediumPizzas = 0
         }
+        if (isNaN(MediumPizzas) === true) {
+        	MediumPizzas = 0
+        	document.write("U heeft niet een nummer ingevuld bij het aantal medium pizzas.<br>")
+        }
         if (LargePizzas == null) {
     		LargePizzas = 0
         }
+        if (isNaN(LargePizzas) === true) {
+        	LargePizzas = 0
+        	document.write("U heeft niet een nummer ingevuld bij het aantal large pizzas.<br>")
+        }
+        TotalPizzas = SmallPizzas + MediumPizzas + LargePizzas;
     	TotalSP = SmallPizzas * PRICESP; //Deze 3 lines berekenen met het aantal ingevulde pizza's per afmeting en hun prijzen het bedrag per afmeting.
     	TotalMP = MediumPizzas * PRICEMP;
     	TotalLP = LargePizzas * PRICELP;
@@ -29,7 +41,7 @@
     	   if (SmallPizzas == 0) { //Deze if-else's die over de afmetingen gaan zorgen ervoor dat als een of meer van de afmetingen niet gekozen word, het aantal niet getoont word.
     	      document.write("") }
     	   else {
-    	      document.write("U heeft " + SmallPizzas + " kleine pizzas in uw bestelling, wat in totaal €" + TotalSP + " kost.<br>"); //Deze 3 lines laten de totaalprijs per afmeting zien op de pagina.
+    	      document.write("U heeft " + SmallPizzas + " small pizzas in uw bestelling, wat in totaal €" + TotalSP + " kost.<br>"); //Deze 3 lines laten de totaalprijs per afmeting zien op de pagina.
     	   }
     	   if (MediumPizzas == 0) {
     	      document.write("") }
@@ -39,10 +51,10 @@
            if (LargePizzas == 0) {
               document.write("") }
            else {
-              document.write("U heeft " + LargePizzas + " large pizzas in uw bestelling, wat in totaal €" + TotalLP + " kost.");
+              document.write("U heeft " + LargePizzas + " large pizzas in uw bestelling, wat in totaal €" + TotalLP + " kost.<br>");
            }
         }
-            document.write("<br><br>")
+            document.write("<br>")
         TotalPrice = TotalSP + TotalMP + TotalLP; //Deze if-else zorgt ervoor dat als de TotalPrice meer dan of gelijk is aan €50,- de verzendkosten €0,- worden.
         if (TotalPrice >= 50) {
         	VerzendKosten = 0 }
