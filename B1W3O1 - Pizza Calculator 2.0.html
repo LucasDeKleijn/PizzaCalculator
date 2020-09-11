@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+    	//Lucas de Kleijn, Pizza calculator.
+    	alert("Goedendag. Vul het gewenste aantal pizzas per afmeting in. Als uw bestelling €50,- of meer kost hoeft u geen verzendkosten te betalen (Normaal €13,-.)") //1ste pop-up met informatie.
+    	SmallPizzas = prompt("Hoeveel small pizzas van €6,- wilt u?"); //Deze 3 lines vragen de gebruiker hoeveel pizza's per afmeting hij wilt.
+    	MediumPizzas = prompt("Hoeveel medium pizzas van €8,- wilt u?");
+    	LargePizzas = prompt("Hoeveel large pizzas van €10,- wilt u?");
+    	TotalPizzas = SmallPizzas + MediumPizzas + LargePizzas;
+    	const PRICESP = 6; //Deze 3 lines maken voor elke afmeting pizza een constante prijs.
+    	const PRICEMP = 8;
+    	const PRICELP = 10;
+    	TotalSP = SmallPizzas * PRICESP; //Deze 3 lines berekenen met het aantal ingevulde pizza's per afmeting en hun prijzen het bedrag per afmeting.
+    	TotalMP = MediumPizzas * PRICEMP;
+    	TotalLP = LargePizzas * PRICELP;
+    	if (TotalPizzas < 1) { //Dit zorgt ervoor dat als er geen pizza word besteld de pagina dit aangeeft.
+    		document.write("U heeft geen pizzas besteld.") }
+    	else {
+    	document.write("U heeft " + SmallPizzas + " kleine pizzas in uw bestelling, wat in totaal €" + TotalSP + " kost.<br>"); //Deze 3 lines laten de totaalprijs per afmeting zien op de pagina.
+    	document.write("U heeft " + MediumPizzas + " medium pizzas in uw bestelling, wat in totaal €" + TotalMP + " kost.<br>");
+        document.write("U heeft " + LargePizzas + " large pizzas in uw bestelling, wat in totaal €" + TotalLP + " kost.<br><br>");
+        }
+        TotalPrice = TotalSP + TotalMP + TotalLP; //Deze if-else zorgt ervoor dat als de TotalPrice meer dan of gelijk is aan €50,- de verzendkosten €0,- worden.
+        if (TotalPrice >= 50) {
+        	VerzendKosten = 0 }
+        else {
+        	VerzendKosten = 13
+        }
+        FinalPrice = TotalPrice + VerzendKosten; //De eindprijs is de prijs van de pizzas + verzendkosten.
+        if (TotalPizzas < 1) { //Dit zorgt ervoor dat de prijzen niet worden getoont als er geen pizzas zijn besteld.
+        	document.write("") }
+        else {
+        document.write("Uw verzendkosten zijn €" + VerzendKosten + ",-.<br>"); //Deze line laat de verzendkosten zien, die €0 zijn als de bestelling meer dan €50 kost.
+        document.write("Uw eindbedrag is €" + FinalPrice + ",-."); //Deze  line laat de totaalprijs van alle afmetingen pizza bij elkaar zien.
+        }
+        document.write("<br><br>Verkeerde bestelling gemaakt? Druk op deze knop om opnieuw een bestelling te maken.")
+    </script>
+        <button onClick="window.location.reload();">Opnieuw bestellen</button>
+  </body>
+</html>
